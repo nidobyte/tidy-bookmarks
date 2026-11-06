@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidy Bookmarks</title>
+  <link rel="icon" href="icons/icon-32.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="icons/icon-48.png" alt="" width="28" height="28">
+      <h1>Tidy Bookmarks</h1>
+    </div>
+    <button id="backupBtn" class="btn ghost" type="button">Download backup</button>
+  </header>
+
+  <main class="wrap">
+    <p class="privacy">Everything happens in your browser. No account, and your bookmarks are never sent anywhere.</p>
+
+    <section id="stats" class="stats" aria-label="Summary"></section>
+
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" data-view="duplicates" type="button">Duplicates <span class="count"></span></button>
+      <button class="tab" role="tab" data-view="empty" type="button">Empty folders <span class="count"></span></button>
+      <button class="tab" role="tab" data-view="links" type="button">Broken links <span class="count"></span></button>
+    </nav>
+
+    <section id="panel" class="panel" role="tabpanel"></section>
+  </main>
+
+  <footer id="actionbar" class="actionbar" hidden>
+    <div class="actionbar-inner">
+      <span id="selCount"></span>
+      <button id="deleteBtn" class="btn danger" type="button">Delete selected</button>
+    </div>
+  </footer>
+
+  <dialog id="confirm" class="dialog">
+    <form method="dialog">
+      <h2>Delete <span id="confirmCount"></span>?</h2>
+      <p>A backup file with all your bookmarks will download first. If you change your mind, import it from Chrome's Bookmark manager.</p>
+      <div class="dialog-actions">
+        <button class="btn ghost" value="cancel" type="submit">Cancel</button>
+        <button class="btn danger" value="confirm" type="submit">Back up and delete</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="lib.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
